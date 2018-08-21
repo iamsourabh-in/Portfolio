@@ -12,6 +12,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { BrowserBridgeService } from './services/BrowserBridge.service';
 import { AboutComponent } from './pages/about/about.component';
 import { WorkComponent } from './pages/work/work.component';
+import { GalleryItemComponent } from './pages/gallery/gallery-item/gallery-item.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { WorkComponent } from './pages/work/work.component';
     BlogsComponent,
     HomeComponent,
     AboutComponent,
-    WorkComponent
+    WorkComponent,
+    GalleryItemComponent
   ],
   imports: [
     BrowserModule,
