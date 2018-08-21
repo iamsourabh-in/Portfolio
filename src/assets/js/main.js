@@ -1,4 +1,4 @@
-;(function () {
+var BodyInit=(function () {
 	
 	'use strict';
 
@@ -91,10 +91,10 @@
 			$('#colorlib-counter').waypoint( function( direction ) {
 										
 				if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-					setTimeout( counter , 400);					
+					setTimeout( counter , 200);					
 					$(this.element).addClass('animated');
 				}
-			} , { offset: '90%' } );
+			} , { offset: '80%' } );
 		}
 	};
 
@@ -172,5 +172,14 @@
 		owlCarouselFeatureSlide();
 	});
 
+	function init(){
+		fullHeight();
+		counterWayPoint();
+		contentWayPoint();
+		owlCarouselFeatureSlide();
+	}
 
+	return{
+		init:init
+	};
 }());

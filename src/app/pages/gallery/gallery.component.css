@@ -1,0 +1,6 @@
+.gal-img :hover {
+  opacity: 0.5;
+}
+.work-img{
+    height: 300px !important;
+}
