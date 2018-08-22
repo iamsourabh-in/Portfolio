@@ -17,12 +17,14 @@
       </div>
     </div>
     <div class="row mar-all">
-      <a (click)="save()">
-        Add New
-      </a>
-      <div class="col-md-6" *ngFor="let item of items | async">
+      <div class="col-md-12" *ngFor="let item of items | async">
 
-        <app-gallery-item [galleryItem]="item"></app-gallery-item>
+        <div class="gal-img">
+          <p>
+            {{item.title}}</p>
+          <img [src]="item.url" width="100%" />
+        </div>
+
       </div>
     </div>
   </div>

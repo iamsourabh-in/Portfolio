@@ -1,13 +1,14 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
-import { BrowserBridgeService } from '../../services/BrowserBridge.service';
 import { AngularFirestore } from 'angularfire2/firestore';
+import { BrowserBridgeService } from '../../services/BrowserBridge.service';
 
 @Component({
-  selector: 'app-blogs',
-  templateUrl: './blogs.component.html',
-  styleUrls: ['./blogs.component.css']
+  selector: 'app-blog-details',
+  templateUrl: './blog-details.component.html',
+  styleUrls: ['./blog-details.component.css']
 })
-export class BlogsComponent implements OnInit, AfterViewInit {
+export class BlogDetailsComponent implements OnInit, AfterViewInit {
+
   blogItems: any;
   constructor(private db: AngularFirestore, private browserBridge: BrowserBridgeService) { }
 

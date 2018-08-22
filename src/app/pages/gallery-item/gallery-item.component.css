@@ -10,7 +10,7 @@
     transform: scale(1.3);
   }
   .gal-img{
-      padding: 15%;
+      padding: 5%;
     -webkit-transition: all 200ms ease-in;
     -webkit-transform: scale(1); 
     -ms-transition: all 200ms ease-in;

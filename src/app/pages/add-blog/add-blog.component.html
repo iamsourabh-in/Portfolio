@@ -1,0 +1,76 @@
+<div id="colorlib-blog">
+  <div class="container">
+    <div class="row text-center">
+      <h2 class="bold">Blog</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-md-offset-0 text-center animate-box intro-heading">
+        <h2>Add Blog</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rotate">
+          <h2 class="heading">My Blog</h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row animate-box">
+      <div class="col-sm-12" style="padding:5px">
+        <div class="col-sm-2">
+          Image:
+        </div>
+        <div class="col-sm-10">
+          <input [(ngModel)]="image" class="form-control" />
+        </div>
+      </div>
+      <div class="col-sm-12" style="padding:5px">
+        <div class="col-sm-2">
+          Title:
+        </div>
+        <div class="col-sm-10">
+          <input [(ngModel)]="title" class="form-control" />
+        </div>
+      </div>
+      <div class="col-sm-12" style="padding:5px">
+        <div class="col-sm-2">
+          Meta Info:
+        </div>
+        <div class="col-sm-10">
+          <input [(ngModel)]="meta" class="form-control" width="100%" />
+        </div>
+      </div>
+      <div class="col-sm-12" style="padding:5px">
+        <div class="col-sm-2">
+          Date:
+        </div>
+        <div class="col-sm-10">
+          <input [(ngModel)]="date" class="form-control" />
+        </div>
+      </div>
+      <div class="col-sm-12 " style="padding:5px">
+        <div class="col-sm-2">
+          <p> Password:</p>
+        </div>
+        <div class="col-sm-10 ">
+          <input [(ngModel)]="pass" class="form-control" />
+        </div>
+      </div>
+      <div class="col-sm-12 " style="padding:5px">
+        <div class="col-sm-2">
+          <h2> Blog Body</h2>
+        </div>
+      </div>
+      <div class="col-sm-12">
+
+        <ckeditor [(ngModel)]="editorValue" [config]="{uiColor: '#CA82F8'}" [readonly]="false" (change)="onChange($event)" (editorChange)="onEditorChange($event)"
+          (ready)="onReady($event)" (focus)="onFocus($event)" (blur)="onBlur($event)" (contentDom)="onContentDom($event)" (fileUploadRequest)="onFileUploadRequest($event)"
+          (fileUploadResponse)="onFileUploadResponse($event)" (paste)="onPaste($event)" (drop)="onDrop($event)" debounce="500">
+        </ckeditor>
+
+        <button (click)="save()" class="btn btn-primary btn-custom" style="margin-top: 5px;">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

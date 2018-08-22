@@ -34,10 +34,10 @@ export class BrowserBridgeService {
 export interface AppExtention {
 
     initGoogleMaps: void;
-    showNotification(color:number, valign:string, halign:string, text:string): void;
+    showNotification(color: number, valign: string, halign: string, text: string): void;
     closeNavOnItemClick();
 }
 
 export interface BodyInit {
-    init():void;
+    init(): void;
 }

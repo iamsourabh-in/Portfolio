@@ -1,87 +1,115 @@
 <div id="colorlib-blog">
-    <div class="container">
-      <div class="row text-center">
-        <h2 class="bold">Blog</h2>
+  <div class="container">
+    <div class="row text-center">
+      <h2 class="bold">Blog</h2>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 col-md-offset-0 text-center animate-box intro-heading">
+        <span>Blog</span>
+        <h2>Read some of my articles</h2>
       </div>
-      <div class="row">
-        <div class="col-md-12 col-md-offset-0 text-center animate-box intro-heading">
-          <span>Blog</span>
-          <h2>Read some of my articles</h2>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <div class="rotate">
-            <h2 class="heading">My Blog</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row animate-box">
-        <div class="owl-carousel1">
-          <div class="item">
-            <div class="col-md-12">
-              <div class="article">
-                <a href="blog.html" class="blog-img">
-                  <img class="img-responsive" src="assets/images/img-1.jpg" alt="html5 bootstrap by colorlib.com">
-                  <div class="overlay"></div>
-                  <div class="link">
-                    <span class="read">Read more</span>
-                  </div>
-                </a>
-                <div class="desc">
-                  <span class="meta">15, Feb 2018</span>
-                  <h2>
-                    <a href="blog.html">A Japanese Constellation</a>
-                  </h2>
-                  <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown
-                    Bookmarksgrove</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="col-md-12">
-              <div class="article">
-                <a href="blog.html" class="blog-img">
-                  <img class="img-responsive" src="assets/images/img-2.jpg" alt="html5 bootstrap by colorlib.com">
-                  <div class="overlay"></div>
-                  <div class="link">
-                    <span class="read">Read more</span>
-                  </div>
-                </a>
-                <div class="desc">
-                  <span class="meta">15, Feb 2018</span>
-                  <h2>
-                    <a href="blog.html">A Japanese Constellation</a>
-                  </h2>
-                  <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown
-                    Bookmarksgrove</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="item">
-            <div class="col-md-12">
-              <div class="article">
-                <a href="blog.html" class="blog-img">
-                  <img class="img-responsive" src="assets/images/img-3.jpg" alt="html5 bootstrap by colorlib.com">
-                  <div class="overlay"></div>
-                  <div class="link">
-                    <span class="read">Read more</span>
-                  </div>
-                </a>
-                <div class="desc">
-                  <span class="meta">15, Feb 2018</span>
-                  <h2>
-                    <a href="blog.html">A Japanese Constellation</a>
-                  </h2>
-                  <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown
-                    Bookmarksgrove</p>
-                </div>
-              </div>
-            </div>
-          </div>
+    </div>
+    <a routerLink="/blog/add"> Add Blog</a>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rotate">
+          <h2 class="heading">My Blog</h2>
         </div>
       </div>
     </div>
+
+    <div class="row ">
+      <div class="col-md-4" style="height: 700px" *ngFor="let item of blogItems | async">
+        <div class="article">
+          <a routerLink="/blog/id" class="blog-img">
+            <img class="img-responsive" [src]="item.image" alt="html5 bootstrap by colorlib.com">
+            <div class="overlay"></div>
+            <div class="link">
+              <span class="read">Read more</span>
+            </div>
+          </a>
+          <div class="desc">
+            <span class="meta">{{item.date}}</span>
+            <h2>
+              <a routerLink="/blog/id">{{item.title}}</a>
+            </h2>
+            <div [innerHTML]="item.docText.substring(0, 200) ">
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- <div class="row animate-box ">
+      <div class="owl-carousel1 ">
+        <div class="item ">
+          <div class="col-md-12 ">
+            <div class="article ">
+              <a href="blog.html " class="blog-img ">
+                <img class="img-responsive " src="assets/images/img-1.jpg " alt="html5 bootstrap by colorlib.com ">
+                <div class="overlay "></div>
+                <div class="link ">
+                  <span class="read ">Read more</span>
+                </div>
+              </a>
+              <div class="desc ">
+                <span class="meta ">15, Feb 2018</span>
+                <h2>
+                  <a href="blog.html ">A Japanese Constellation</a>
+                </h2>
+                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her
+                  hometown Bookmarksgrove
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item ">
+          <div class="col-md-12 ">
+            <div class="article ">
+              <a href="blog.html " class="blog-img ">
+                <img class="img-responsive " src="assets/images/img-2.jpg " alt="html5 bootstrap by colorlib.com ">
+                <div class="overlay "></div>
+                <div class="link ">
+                  <span class="read ">Read more</span>
+                </div>
+              </a>
+              <div class="desc ">
+                <span class="meta ">15, Feb 2018</span>
+                <h2>
+                  <a href="blog.html ">A Japanese Constellation</a>
+                </h2>
+                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her
+                  hometown Bookmarksgrove
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="item ">
+          <div class="col-md-12 ">
+            <div class="article ">
+              <a href="blog.html " class="blog-img ">
+                <img class="img-responsive " src="assets/images/img-3.jpg " alt="html5 bootstrap by colorlib.com ">
+                <div class="overlay "></div>
+                <div class="link ">
+                  <span class="read ">Read more</span>
+                </div>
+              </a>
+              <div class="desc ">
+                <span class="meta ">15, Feb 2018</span>
+                <h2>
+                  <a href="blog.html ">A Japanese Constellation</a>
+                </h2>
+                <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her
+                  hometown Bookmarksgrove
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
   </div>
+</div>
