@@ -19,7 +19,7 @@ export class AddBlogComponent implements OnInit {
 
   constructor(private db: AngularFirestore, private browserBridge: BrowserBridgeService) { }
   save() {
-    if (this.editorValue != '' && this.pass == 'passkey') {
+    if (this.editorValue !== '' && this.pass === 'passkey') {
 
       this.db.collection('blogs').add({
         title: this.title,

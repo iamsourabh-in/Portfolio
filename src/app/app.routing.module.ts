@@ -15,12 +15,12 @@ import { GalleryItemDetailsComponent } from './pages/gallery-item-details/galler
 import { AddGalleryItemComponent } from './pages/add-gallery-item/add-gallery-item.component';
 
 const routes: Routes = [
-    { path: '', component: HomeComponent },
+    { path: '', redirectTo: 'home', pathMatch: 'full' },
+    { path: 'work', component: WorkComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'blog', component: BlogsComponent },
     { path: 'blog/add', component: AddBlogComponent },
     { path: 'blog/:id', component: BlogDetailsComponent },
-    { path: 'home', component: HomeComponent },
-    { path: 'work', component: WorkComponent },
     { path: 'gallery', component: GalleryComponent },
     { path: 'gallery/add', component: AddGalleryItemComponent },
     { path: 'gallery/:id', component: GalleryItemDetailsComponent },
