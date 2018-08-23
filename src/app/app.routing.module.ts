@@ -12,6 +12,7 @@ import { GalleryItemComponent } from './pages/gallery-item/gallery-item.componen
 import { AddBlogComponent } from './pages/add-blog/add-blog.component';
 import { BlogDetailsComponent } from './pages/blog-details/blog-details.component';
 import { GalleryItemDetailsComponent } from './pages/gallery-item-details/gallery-item-details.component';
+import { AddGalleryItemComponent } from './pages/add-gallery-item/add-gallery-item.component';
 
 const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -21,13 +22,14 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'work', component: WorkComponent },
     { path: 'gallery', component: GalleryComponent },
+    { path: 'gallery/add', component: AddGalleryItemComponent },
     { path: 'gallery/:id', component: GalleryItemDetailsComponent },
     { path: 'about', component: AboutComponent },
     { path: '**', redirectTo: 'home', pathMatch: 'full' }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
+    imports: [RouterModule.forRoot(routes, { useHash: true })],
     exports: [RouterModule]
 })
 export class AppRoutingModule {

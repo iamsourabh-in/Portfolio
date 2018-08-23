@@ -23,7 +23,7 @@
       <div class="col-md-4" style="height: 700px" *ngFor="let item of blogItems | async">
         <div class="article">
           <a [routerLink]="getRoute(item.id)" class="blog-img">
-            <img class="img-responsive" [src]="item.image" alt="html5 bootstrap by colorlib.com">
+            <img class="img-responsive" [src]="item.image" alt="image">
             <div class="overlay"></div>
             <div class="link">
               <span class="read">Read more</span>
@@ -32,10 +32,10 @@
           <div class="desc">
             <!-- <pre>{{item | json}}</pre> -->
             <span class="meta">{{item.date}}</span>
-            <h2>
+            <h5>
               <a [routerLink]="getRoute(item.id)">{{item.title}}</a>
-            </h2>
-            <div [innerHTML]="item.docText.substring(0, 200) ">
+            </h5>
+            <div [innerHTML]="item.docText.substring(0, 200)">
             </div>
           </div>
         </div>

@@ -17,12 +17,16 @@
       </div>
     </div>
     <div class="row mar-all">
-      <a (click)="save()">
+      <a routerLink="/gallery/add">
         Add New
       </a>
-      <div class="col-md-6" *ngFor="let item of items | async">
+      <div class="col-md-6" *ngFor="let item of galleryItems | async">
 
-        <app-gallery-item [galleryItem]="item"></app-gallery-item>
+        <div class="gal-img">
+          <p>
+            {{item.title}}</p>
+          <img [routerLink]='getroute(item.id)' [src]="item.image" width="100%" />
+        </div>
       </div>
     </div>
   </div>

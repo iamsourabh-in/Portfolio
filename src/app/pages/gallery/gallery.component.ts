@@ -1,8 +1,10 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { BrowserBridgeService } from '../../services/BrowserBridge.service';
-import { AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { FireBaseService } from '../../services/firebase.service';
 import { GalleryItem } from '../../models/GalleryItem';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-gallery',
@@ -10,8 +12,8 @@ import { GalleryItem } from '../../models/GalleryItem';
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent implements OnInit, AfterViewInit {
-  items: any;
-  single: any;
+  galleryCollections: AngularFirestoreCollection<any>;
+  galleryItems: any;
   ngAfterViewInit(): void {
     this.browserBridge.body.init();
   }
@@ -21,10 +23,32 @@ export class GalleryComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-    this.items = this.db.collection('/galleryItems').valueChanges();
+    // this.items = this.db.collection('/galleryItems').valueChanges();
 
-    this.db.collection('/galleryItems').snapshotChanges().subscribe(
-      (res) => console.log(res),
+    // this.db.collection('/galleryItems').snapshotChanges().subscribe(
+    //   (res) => console.log(res),
+    // );
+
+    this.galleryCollections = this.db.collection('galleryItems');
+    // this.blogItems = this.blogCollections.snapshotChanges().map(
+    //   changes => {
+    //     return changes.map(
+    //       a => {
+    //         const data = a.payload.doc.data();
+    //         data.id = a.payload.doc.id;
+    //         return data;
+    //       });
+    //   });
+
+    this.galleryItems = this.galleryCollections.snapshotChanges().pipe(
+      map(changes => {
+        return changes.map(
+          a => {
+            const data = a.payload.doc.data();
+            data.id = a.payload.doc.id;
+            return data;
+          });
+      }),
     );
   }
 
@@ -50,6 +74,9 @@ export class GalleryComponent implements OnInit, AfterViewInit {
     //       return { id, data };
     //     });
     //   });
+  }
+  getroute(id: any): string {
+    return '/gallery/' + id;
   }
 
 }

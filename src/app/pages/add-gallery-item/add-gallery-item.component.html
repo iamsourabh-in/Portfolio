@@ -1,0 +1,65 @@
+<div id="colorlib-work">
+  <div class="container">
+    <div class="row text-center">
+      <h2 class="bold">Gallery</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-12 col-md-offset-0 text-center animate-box intro-heading">
+        <span>Gallery</span>
+        <h2>Gallery</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="rotate">
+          <h2 class="heading">Add Image</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row mar-all">
+      <div class="col-sm-12" style="padding:5px">
+        <div class="col-sm-2">
+          Image:
+        </div>
+        <div class="col-sm-10">
+          <input type="file" (change)="upload($event)" accept=".png,.jpg" />
+          <div>{{ uploadPercent | async }}</div>
+        </div>
+      </div>
+      <div class="col-sm-12" style="padding:5px">
+        <div class="col-sm-2">
+          Title:
+        </div>
+        <div class="col-sm-10">
+          <input [(ngModel)]="title" class="form-control" />
+        </div>
+      </div>
+      <div class="col-sm-12" style="padding:5px">
+        <div class="col-sm-2">
+          Meta Info:
+        </div>
+        <div class="col-sm-10">
+          <input [(ngModel)]="meta" class="form-control" />
+        </div>
+      </div>
+      <div class="col-sm-12" style="padding:5px">
+        <div class="col-sm-2">
+          Date:
+        </div>
+        <div class="col-sm-10">
+          <input [(ngModel)]="date" class="form-control" />
+        </div>
+      </div>
+      <div class="col-sm-12 " style="padding:5px">
+        <div class="col-sm-2">
+          <p> Password:</p>
+        </div>
+        <div class="col-sm-10 ">
+          <input [(ngModel)]="pass" class="form-control" />
+        </div>
+      </div>
+
+      <button (click)="save()" class="btn btn-primary btn-custom" style="margin-top: 5px;">Save</button>
+    </div>
+  </div>
+</div>

@@ -37,10 +37,8 @@ export class BlogsComponent implements OnInit, AfterViewInit {
           });
       }),
     );
-    
-    console.log(this.blogItems)
-
   }
+
   ngAfterViewInit(): void {
     this.browserBridge.body.init();
   }

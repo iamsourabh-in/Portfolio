@@ -19,11 +19,13 @@ import { FireBaseService } from './services/firebase.service';
 // Third Party
 
 import { CKEditorModule } from 'ng2-ckeditor';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFirestoreModule, AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { BlogDetailsComponent } from './pages/blog-details/blog-details.component';
 import { GalleryItemDetailsComponent } from './pages/gallery-item-details/gallery-item-details.component';
+import { AddGalleryItemComponent } from './pages/add-gallery-item/add-gallery-item.component';
+import { AngularFireStorage } from 'angularfire2/storage';
 
 @NgModule({
   declarations: [
@@ -39,17 +41,18 @@ import { GalleryItemDetailsComponent } from './pages/gallery-item-details/galler
     GalleryItemComponent,
     AddBlogComponent,
     BlogDetailsComponent,
-    GalleryItemDetailsComponent
+    GalleryItemDetailsComponent,
+    AddGalleryItemComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     CKEditorModule,
+    AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
   ],
-  providers: [BrowserBridgeService, FireBaseService],
+  providers: [BrowserBridgeService, FireBaseService, AngularFireStorage],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

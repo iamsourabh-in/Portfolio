@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { BrowserBridgeService } from '../../services/BrowserBridge.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gallery-item-details',
@@ -9,15 +10,27 @@ import { BrowserBridgeService } from '../../services/BrowserBridge.service';
 })
 export class GalleryItemDetailsComponent implements OnInit, AfterViewInit {
 
-  items: any = {};
-  constructor(private db: AngularFirestore, private browserBridge: BrowserBridgeService) { }
+
+  galleryItem: any = {};
+  constructor(private route: ActivatedRoute, private db: AngularFirestore, private browserBridge: BrowserBridgeService) { }
 
 
   ngOnInit() {
-    this.items = this.db.collection('/galleryItems').valueChanges();
-    console.log(this.items);
+    const id = this.route.snapshot.paramMap.get('id');
+
+    this.db.collection('galleryItems').doc(id).ref.get().then((doc) => {
+      if (doc.exists) {
+        this.galleryItem = doc.data();
+      } else {
+        console.log('No such document!');
+      }
+    }).catch(function (error) {
+      console.log('Error getting document:', error);
+    });
+
   }
   ngAfterViewInit(): void {
     this.browserBridge.body.init();
   }
+
 }

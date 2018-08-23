@@ -12,17 +12,17 @@
     <div class="row">
       <div class="col-md-12">
         <div class="rotate">
-          <h2 class="heading">Portfolio</h2>
+          <h2 class="heading">Gallery</h2>
         </div>
       </div>
     </div>
     <div class="row mar-all">
-      <div class="col-md-12" *ngFor="let item of items | async">
+      <div class="col-md-12">
 
         <div class="gal-img">
           <p>
-            {{item.title}}</p>
-          <img [src]="item.url" width="100%" />
+            {{galleryItem.title}}</p>
+          <img [src]="galleryItem.image" width="100%" />
         </div>
 
       </div>

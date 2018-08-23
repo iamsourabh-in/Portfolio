@@ -19,16 +19,14 @@ export class BlogDetailsComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
-    console.log(id.toString())
-
     this.db.collection('blogs').doc(id).ref.get().then((doc) => {
       if (doc.exists) {
         this.blogItems = doc.data();
       } else {
-        console.log("No such document!");
+        console.log('No such document!');
       }
     }).catch(function (error) {
-      console.log("Error getting document:", error);
+      console.log('Error getting document:', error);
     });
 
   }
