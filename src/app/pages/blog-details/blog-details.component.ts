@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { BrowserBridgeService } from '../../services/BrowserBridge.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-blog-details',
@@ -9,13 +10,29 @@ import { BrowserBridgeService } from '../../services/BrowserBridge.service';
 })
 export class BlogDetailsComponent implements OnInit, AfterViewInit {
 
-  blogItems: any;
-  constructor(private db: AngularFirestore, private browserBridge: BrowserBridgeService) { }
+  blogItems: any = {};
+  constructor(private route: ActivatedRoute, private db: AngularFirestore, private browserBridge: BrowserBridgeService) {
+
+
+  }
 
 
   ngOnInit() {
-    this.blogItems = this.db.collection('/blogs').valueChanges();
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id.toString())
+
+    this.db.collection('blogs').doc(id).ref.get().then((doc) => {
+      if (doc.exists) {
+        this.blogItems = doc.data();
+      } else {
+        console.log("No such document!");
+      }
+    }).catch(function (error) {
+      console.log("Error getting document:", error);
+    });
+
   }
+
   ngAfterViewInit(): void {
     this.browserBridge.body.init();
   }

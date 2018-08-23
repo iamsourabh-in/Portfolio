@@ -19,9 +19,7 @@ export class GalleryItemComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   constructor(private route: ActivatedRoute, private location: Location, private browserBridge: BrowserBridgeService, private db: AngularFirestore) {
 
-    if (!this.galleryItem) {
-      const id = +this.route.snapshot.paramMap.get('id');
-    }
+
 
 
   }

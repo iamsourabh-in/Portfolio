@@ -17,7 +17,7 @@ const routes: Routes = [
     { path: '', component: HomeComponent },
     { path: 'blog', component: BlogsComponent },
     { path: 'blog/add', component: AddBlogComponent },
-    { path: 'blog/id', component: BlogDetailsComponent },
+    { path: 'blog/:id', component: BlogDetailsComponent },
     { path: 'home', component: HomeComponent },
     { path: 'work', component: WorkComponent },
     { path: 'gallery', component: GalleryComponent },

@@ -1,5 +1,5 @@
 <div id="colorlib-blog">
-  <div class="container" *ngFor="let item of blogItems | async">
+  <div class="container">
     <div class="row text-center">
       <h2 class="bold">Blog</h2>
     </div>
@@ -7,7 +7,7 @@
     <div class="row">
       <div class="col-md-12 col-md-offset-0 text-center animate-box intro-heading">
         <span>Blog</span>
-        <h2>{{item.title}}</h2>
+        <h2>{{blogItems.title}}</h2>
       </div>
     </div>
 
@@ -23,18 +23,18 @@
       <div class="col-md-12">
         <div class="article">
           <a class="blog-img">
-            <img class="img-responsive blog-pic" [src]="item.image" alt="html5 bootstrap by colorlib.com">
+            <img class="img-responsive blog-pic" [src]="blogItems.image" alt="html5 bootstrap by colorlib.com">
             <div class="overlay"></div>
             <div class="link">
               <span class="read">Sourabh Rustagi</span>
             </div>
           </a>
           <div class="desc">
-            <span class="meta">{{item.date}}</span>
+            <span class="meta">{{blogItems.date}}</span>
             <h2>
-              <a>{{item.title}}</a>
+              <a>{{blogItems.title}}</a>
             </h2>
-            <div [innerHTML]="item.docText">
+            <div [innerHTML]="blogItems.docText">
             </div>
           </div>
         </div>
