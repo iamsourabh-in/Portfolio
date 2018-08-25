@@ -8,12 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-
+  currentPage: String = '';
   constructor(private browserBridge: BrowserBridgeService, private router: Router) { }
 
   ngOnInit() {
   }
   openItem(page: String) {
+    this.currentPage = page;
     this.browserBridge.nativeExtra.closeNavOnItemClick();
     this.router.navigate([page]);
   }

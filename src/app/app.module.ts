@@ -26,6 +26,7 @@ import { BlogDetailsComponent } from './pages/blog-details/blog-details.componen
 import { GalleryItemDetailsComponent } from './pages/gallery-item-details/gallery-item-details.component';
 import { AddGalleryItemComponent } from './pages/add-gallery-item/add-gallery-item.component';
 import { AngularFireStorage } from 'angularfire2/storage';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AngularFireStorage } from 'angularfire2/storage';
     CKEditorModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [BrowserBridgeService, FireBaseService, AngularFireStorage],
   bootstrap: [AppComponent]

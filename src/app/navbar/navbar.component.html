@@ -17,49 +17,26 @@
       <div class="row">
         <div class="col-md-12">
           <ul>
-            <li class="active">
+            <li [ngClass]="{'active': currentPage == '\home' || currentPage == ''}">
               <a (click)="openItem('\home')">Home</a>
             </li>
-            <li>
+            <li [ngClass]="{'active': currentPage == '\work'}">
               <a (click)="openItem('\work')">Work</a>
             </li>
-            <li>
+            <li [ngClass]="{'active': currentPage == '\blog'}">
               <a (click)="openItem('\blog')">Blog</a>
             </li>
-            <li>
+            <li [ngClass]="{'active': currentPage == '\gallery'}">
               <a (click)="openItem('\gallery')">Gallery</a>
             </li>
-            <li>
+            <li [ngClass]="{'active': currentPage == '\contact'}">
               <a (click)="openItem('\contact')">Contact</a>
             </li>
           </ul>
         </div>
       </div>
-      <div class="row">
-        <div class="col-md-12">
-          <h2 class="head-title">Works</h2>
-          <a href="images/work-1.jpg" class="gallery image-popup-link text-center" style="background-image: url(images/work-1.jpg);">
-            <span>
-              <i class="icon-search3"></i>
-            </span>
-          </a>
-          <a href="images/work-2.jpg" class="gallery image-popup-link text-center" style="background-image: url(images/work-2.jpg);">
-            <span>
-              <i class="icon-search3"></i>
-            </span>
-          </a>
-          <a href="images/work-3.jpg" class="gallery image-popup-link text-center" style="background-image: url(images/work-3.jpg);">
-            <span>
-              <i class="icon-search3"></i>
-            </span>
-          </a>
-          <a href="images/work-4.jpg" class="gallery image-popup-link text-center" style="background-image: url(images/work-4.jpg);">
-            <span>
-              <i class="icon-search3"></i>
-            </span>
-          </a>
-        </div>
-      </div>
+
     </div>
   </div>
+
 </nav>

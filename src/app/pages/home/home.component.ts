@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { BrowserBridgeService } from '../../services/BrowserBridge.service';
 
 @Component({
@@ -6,11 +6,11 @@ import { BrowserBridgeService } from '../../services/BrowserBridge.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements AfterViewInit {
 
   constructor(private browserBridge: BrowserBridgeService) { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
     this.browserBridge.body.init();
   }
 

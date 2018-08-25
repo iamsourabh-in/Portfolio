@@ -16,12 +16,13 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-primary" routerLink="/gallery/add"> Add Image</button>
+      </div>
+    </div>
     <div class="row mar-all">
-      <a routerLink="/gallery/add">
-        Add New
-      </a>
       <div class="col-md-6" *ngFor="let item of galleryItems | async">
-
         <div class="gal-img">
           <p>
             {{item.title}}</p>
