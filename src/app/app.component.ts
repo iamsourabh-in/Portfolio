@@ -7,7 +7,7 @@ import { BrowserBridgeService } from './services/BrowserBridge.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  title = 'MyPort';
+  title = 'SRustagi';
 
   constructor(private browserBridge: BrowserBridgeService) { }
 
