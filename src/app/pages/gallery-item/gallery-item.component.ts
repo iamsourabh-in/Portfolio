@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { BrowserBridgeService } from '../../services/BrowserBridge.service';
-import { AngularFirestore } from 'angularfire2/firestore';
 import { FireBaseService } from '../../services/firebase.service';
 import { GalleryItem } from '../../models/GalleryItem';
 import { Location } from '@angular/common';
@@ -17,7 +16,7 @@ export class GalleryItemComponent implements OnInit {
 
   items: any;
   // tslint:disable-next-line:max-line-length
-  constructor(private route: ActivatedRoute, private location: Location, private browserBridge: BrowserBridgeService, private db: AngularFirestore) {
+  constructor(private route: ActivatedRoute, private location: Location, private browserBridge: BrowserBridgeService) {
 
 
 
@@ -30,7 +29,7 @@ export class GalleryItemComponent implements OnInit {
   }
 
   getItemfromRoute(id: any) {
-    this.db.collection('/galleryItems', ref => ref.where('id', '==', id));
+    // this.db.collection('/galleryItems', ref => ref.where('id', '==', id));
     // this.galleryItem = this.db.collection<GalleryItem>('/galleryItems').doc(id).valueChanges();  }
 
   }
