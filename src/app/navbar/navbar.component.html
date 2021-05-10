@@ -7,7 +7,12 @@
       <div class="row">
         <div class="col-md-12">
           <div class="form-group">
-            <input type="text" class="form-control" id="search" placeholder="Enter any key to search...">
+            <input
+              type="text"
+              class="form-control"
+              id="search"
+              placeholder="Enter any key to search..."
+            />
             <button type="submit" class="btn btn-primary">
               <i class="icon-search3"></i>
             </button>
@@ -17,26 +22,28 @@
       <div class="row">
         <div class="col-md-12">
           <ul>
-            <li [ngClass]="{'active': currentPage == '\home' || currentPage == ''}">
+            <li
+              [ngClass]="{
+                active: currentPage === '\home' || currentPage === ''
+              }"
+            >
               <a (click)="openItem('\home')">Home</a>
             </li>
-            <li [ngClass]="{'active': currentPage == '\work'}">
+            <li [ngClass]="{ active: currentPage === '\work' }">
               <a (click)="openItem('\work')">Work</a>
             </li>
-            <!-- <li [ngClass]="{'active': currentPage == '\blog'}">
-              <a (click)="openItem('\blog')">Blog</a>
+            <li>
+              <a (click)="goToLink('http://devcachein.wordpress.com')">Blog</a>
             </li>
-            <li [ngClass]="{'active': currentPage == '\gallery'}">
-              <a (click)="openItem('\gallery')">Gallery</a>
-            </li> -->
-            <li [ngClass]="{'active': currentPage == '\contact'}">
+            <li>
+              <a (click)="goToLink('http://cli.iamsourabh.in')">Terminal</a>
+            </li>
+            <!--   <li [ngClass]="{'active': currentPage == '\contact'}">
               <a (click)="openItem('\contact')">Contact</a>
-            </li>
+            </li> -->
           </ul>
         </div>
       </div>
-
     </div>
   </div>
-
 </nav>

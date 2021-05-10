@@ -13,6 +13,6 @@ export class AppComponent implements AfterViewInit {
 
 
   ngAfterViewInit(): void {
-    this.browserBridge.body.init();
+    //this.browserBridge.body.init();
   }
 }

@@ -11,7 +11,7 @@ export class HomeComponent implements AfterViewInit {
   constructor(private browserBridge: BrowserBridgeService) { }
 
   ngAfterViewInit() {
-    this.browserBridge.body.init();
+    //this.browserBridge.body.init();
   }
 
 }

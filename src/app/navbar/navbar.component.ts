@@ -18,5 +18,8 @@ export class NavbarComponent implements OnInit {
     this.browserBridge.nativeExtra.closeNavOnItemClick();
     this.router.navigate([page]);
   }
+  goToLink(url: string) {
+    window.open(url, '_blank');
+  }
 
 }
