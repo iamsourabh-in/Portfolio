@@ -17,19 +17,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up Node.js
+      # Set up Node.js for Angular 6
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 10 # Angular 6 supports Node 8.x or 10.x
+
+      # Install Angular CLI version 6 globally
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli@6
 
       # Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Build the Angular application
+      # Build the Angular 6 application
       - name: Build Angular App
-        run: npm run build --prod
+        run: ng build --prod
 
       # Upload build artifacts
       - name: Upload artifact
